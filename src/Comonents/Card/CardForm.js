@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import ButtoHandler from "../Button/Button";
@@ -12,7 +12,10 @@ const CardForm = (props) => {
   const [title, setTitle] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_CARD", newCard: { title } });
+    dispatch({
+      type: "ADD_CARD",
+      newCard: { title, columnId: props.columnId },
+    });
 
     // props.action({ title: title}, props.columnId);
     setTitle("");

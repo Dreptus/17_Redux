@@ -7,6 +7,7 @@ import classes from "./List.module.scss";
 const List = () => {
   
   const columns = useSelector((state) => state.columns);
+  console.log(columns)
   return (
     <div>
       <header className={classes.header}>
@@ -19,7 +20,7 @@ const List = () => {
       </p>
       <section className={classes.columns}>
         {columns.map(column => 
-          <Column key={column.id} {...column} />
+          <Column key={column.id} columnId={column.id} {...column} />
         )}
       </section>
       <ColumnForm />

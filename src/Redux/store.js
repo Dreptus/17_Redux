@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { legacy_createStore } from "@reduxjs/toolkit"
 import initialState from "./initialState";
 import shortid from "shortid";
 
@@ -10,6 +10,7 @@ const reducer = (state, payload) => {
         columns: [...state.columns, { ...payload.newColumn, id: shortid() }],
       };
     case "ADD_CARD":
+      console.log(payload)
       return {
         ...state,
         cards: [...state.cards, { ...payload.newCard, id: shortid() }],
@@ -19,7 +20,7 @@ const reducer = (state, payload) => {
   }
 };
 
-const store = createStore(
+const store = legacy_createStore(
   reducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
