@@ -1,26 +1,21 @@
-import { legacy_createStore } from "@reduxjs/toolkit"
-import initialState from "./initialState";
-import shortid from "shortid";
+import { createStore, combineReducers } from 'redux';
+import initialState from './initialState';
+import listsReducer from './listsRedux';
+import columnsReducer from './columnRedux';
+import cardsReducer from './cardsRedux';
+import searchStringReducer from './searchStringRedux';
 
-const reducer = (state, payload) => {
-  switch (payload.type) {
-    case "ADD_COLUMN":
-      return {
-        ...state,
-        columns: [...state.columns, { ...payload.newColumn, id: shortid() }],
-      };
-    case "ADD_CARD":
-      console.log(payload)
-      return {
-        ...state,
-        cards: [...state.cards, { ...payload.newCard, id: shortid() }],
-      };
-    default:
-      return state;
-  }
+const subreducers = {
+  lists: listsReducer,
+  columns: columnsReducer,
+  cards: cardsReducer,
+  searchString: searchStringReducer
 };
 
-const store = legacy_createStore(
+const reducer = combineReducers(subreducers);
+
+
+const store = createStore(
   reducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

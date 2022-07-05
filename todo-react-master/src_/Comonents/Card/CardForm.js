@@ -6,7 +6,7 @@ import TextInput from "../TextInput/TextInput";
 
 import classes from "./CardForm.module.scss";
 
-const CardForm = (props) => {
+const CardForm = (action) => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
@@ -14,10 +14,8 @@ const CardForm = (props) => {
     e.preventDefault();
     dispatch({
       type: "ADD_CARD",
-      newCard: { title, columnId: props.columnId },
+      payload: { title, columnId: action.columnId },
     });
-
-    // props.action({ title: title}, props.columnId);
     setTitle("");
   };
 

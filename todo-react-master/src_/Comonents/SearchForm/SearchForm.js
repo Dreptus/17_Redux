@@ -7,8 +7,8 @@ const SearchForm = (props) => {
     <form className={classes.searchForm}>
       <TextInput placeholder="Search..." />
       <ButtoHandler text="search">Search</ButtoHandler>
-      <TextInput placeholder="Add new column" />
-      <ButtoHandler text="columns">Create</ButtoHandler>
+      {/* <TextInput placeholder="Add new column" />
+      <ButtoHandler text="columns">Create</ButtoHandler> */}
     </form>
   );
 };

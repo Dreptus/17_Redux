@@ -1,0 +1,44 @@
+@import '../../styles/typography.scss';
+@import '../../styles/settings.scss';
+
+.navBar {
+     width: 100%;
+     background-color: darken($color-dark, 3%);
+     height: 50px;
+
+}
+
+.container {
+     max-width: 1200px;
+     height: 100%;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+a .icon {
+     font-size: 24px;
+}
+
+.navigation {
+     width: 250px;
+}
+
+.ulNav{
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     font-weight: bold;
+     letter-spacing: 1.5px;
+     list-style: none;
+}
+
+a {
+     text-decoration: none;
+     color: $color-light;
+}
+
+.linkActive {
+     color: $color-warning;
+}
